@@ -14,7 +14,7 @@
 
     <repositories>
         <repository>
-            <id>yurydoronin/job4j</id>
+            <id>job4j</id>
             <url>https://github.com/yurydoronin/job4j</url>
         </repository>
     </repositories>
@@ -22,7 +22,7 @@
     <dependencies>
         <dependency>
             <groupId>ru.job4j</groupId>
-            <artifactId>chapter_005</artifactId>
+            <artifactId>job4j</artifactId>
             <version>3.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
