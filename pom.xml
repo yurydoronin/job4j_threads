@@ -14,7 +14,7 @@
 
     <repositories>
         <repository>
-            <id>job4j</id>
+            <id>ru.job4j</id>
             <url>https://github.com/yurydoronin/job4j</url>
         </repository>
     </repositories>
