@@ -1,6 +1,8 @@
 package ru.job4j.multithreading;
 
 import net.jcip.annotations.ThreadSafe;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Class ParallelSearch.
@@ -12,6 +14,8 @@ import net.jcip.annotations.ThreadSafe;
 @ThreadSafe
 public class ParallelSearch {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ParallelSearch.class);
+
     public static void main(String[] args) {
         SimpleBlockingQueue<Integer> queue = new SimpleBlockingQueue<>();
         final Thread consumer = new Thread(() -> {
@@ -19,7 +23,7 @@ public class ParallelSearch {
                 try {
                     System.out.println(queue.poll());
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    LOG.info("info message", e);
                     Thread.currentThread().interrupt();
                 }
             }
@@ -32,7 +36,7 @@ public class ParallelSearch {
                     queue.offer(index);
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    LOG.info("info message", e);
                     Thread.currentThread().interrupt();
                 }
             }
