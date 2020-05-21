@@ -14,9 +14,6 @@ import java.util.concurrent.CountDownLatch;
  */
 public class DeadLock {
 
-    /**
-     * Logger.
-     */
     private static final Logger LOG = LoggerFactory.getLogger(DeadLock.class);
 
     private final Object a = new Object();
@@ -33,7 +30,9 @@ public class DeadLock {
                 } catch (Exception e) {
                     LOG.error(e.getMessage(), e);
                 }
+                System.out.println("A is still waiting of B");
                 synchronized (b) {
+                    System.out.println("I'm B");
                     cdl.countDown();
                 }
             }
@@ -48,7 +47,9 @@ public class DeadLock {
                 } catch (Exception e) {
                     LOG.error(e.getMessage(), e);
                 }
+                System.out.println("B is still waiting of A");
                 synchronized (a) {
+                    System.out.println("I'm A");
                     cdl.countDown();
                 }
             }
